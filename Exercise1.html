@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>JavaScript Exercises</title>
+	</head>
+	<body>
+		<p id="addition"></p>
+        <p id="subtraction"></p>
+        <p id="multiplication"></p>
+        <p id="division"></p>
+        <p id="modulus"></p>
+        <hr />
+        <input id="number1" type="text" value="0" />
+        <select id="operation">
+            <option value="addition">+</option>
+            <option value="subtraction">-</option>
+            <option value="multiplication">*</option>
+            <option value="division">/</option>
+        </select>
+        <input id="number2" type="text" value="0" />
+        <div>
+            Answer To Above = <span id="answer"></span>
+        </div>
+        <button id="calculateEquation">Calculate</button>
+	</body>
+	<script>
+        function showOffMyMath() {
+            var number1 = 1, number2 = 2;
+            var addition = number1 + number2;
+            var subtraction = number2 - number1;
+            var multiplication = number1 * number2;
+            var division = number2 / number1;
+            var modulus = number2 % number1;
+
+            // Show the values
+            document.getElementById("addition").innerHTML="Addition = " + addition;
+            document.getElementById("subtraction").innerHTML="Subtraction = " + subtraction;
+            document.getElementById("multiplication").innerHTML="Multiplication = " + multiplication;
+            document.getElementById("division").innerHTML="Division = " + division;
+            document.getElementById("modulus").innerHTML="Modulus = " + modulus;
+        }
+
+        function writeToConsoleSomeLogicCommands() {
+            // Show off some logic commands
+            console.log("4" == 4); // Will be true
+            console.log("4" === 4); // Will be false
+            console.log(4 === 4); // Will be true
+
+            if(3 < 2) {
+                console.log("3 is less than 2");
+            } else if (3 == 2) {
+                console.log("3 is equal to 2");
+            } else {
+                console.log("3 is greater than 2");
+            }
+
+            (5 == 5) ? console.log("5 is equal to 5") : console.log("5 is not equal to 5");
+        }
+
+        function calculateAnswer() {
+            console.log(document.getElementById("number1").value);
+            console.log(document.getElementById("number2").value);
+            console.log(document.getElementById("operation").value);
+        }
+
+        window.onload = function() {
+            document.getElementById("calculateEquation").onclick=calculateAnswer;
+            showOffMyMath();
+            writeToConsoleSomeLogicCommands();
+        }
+	</script>
+</html>
