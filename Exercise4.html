@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Inflow Exercise 4</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div ng-app="currenciesApp" ng-controller="currenciesCrtl">
+			<div ng-repeat="c in currencies">
+				{{ c.Country + ' - ' + c.Name + ' - ' + c.Code }}
+			</div>
+		</div>
+	</body>
+	<script>
+		var currencies = [
+			{"Country":"United States","Name":"Dollar","Code":"USD"},
+			{"Country":"Great Britain","Name":"Pound","Code":"GBP"},
+			{"Country":"Eurozone","Name":"Euro","Code":"EUR"},
+			{"Country":"Japan","Name":"Yen","Code":"JPY"}
+		]
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		var app = angular.module("currenciesApp", []);
+		app.controller("currenciesCrtl", function($scope) {
+			$scope.currencies= currencies;
+		});
+</script>
+</html>
