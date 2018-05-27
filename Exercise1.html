@@ -16,6 +16,7 @@
             <option value="subtraction">-</option>
             <option value="multiplication">*</option>
             <option value="division">/</option>
+	    <option value="modulus">%</option>
         </select>
         <input id="number2" type="text" value="0" />
         <div>
@@ -58,9 +59,41 @@
         }
 
         function calculateAnswer() {
-            console.log(document.getElementById("number1").value);
-            console.log(document.getElementById("number2").value);
-            console.log(document.getElementById("operation").value);
+            var num1 = parseInt(document.getElementById("number1").value);
+            var num2 = parseInt(document.getElementById("number2").value);
+  	    //no need to check for operand which will definitely have a value
+            var operand = document.getElementById("operation").value;
+            if (Number.isInteger(num1) && Number.isInteger(num2)){
+                switch(operand) {
+                    case "subtraction":
+                        document.getElementById("answer").innerHTML= num1 - num2;
+                        break;
+                    case "addition":
+                        document.getElementById("answer").innerHTML= num1 + num2;
+                        break;
+                    case "multiplication":
+                        document.getElementById("answer").innerHTML= num1 * num2;
+                        break;
+                    case "division":  
+                        if (num2 != 0) {
+                            document.getElementById("answer").innerHTML= num1/num2;
+                        }
+                        else {
+                        document.getElementById("answer").innerHTML= "Can't divide by zero!";
+                        }
+                        break;
+                    case "modulus":
+                        if (num2 != 0) {
+                            document.getElementById("answer").innerHTML= num1 % num2;
+                        }
+                        else {
+                            //yes modulus is essentialty division in a sequence, but this is more clear to the user 
+                            //than saying the division is invalid
+                            document.getElementById("answer").innerHTML= "Can't perform modulus by zero!";
+                        }
+                        break;
+                }
+            }
         }
 
         window.onload = function() {
